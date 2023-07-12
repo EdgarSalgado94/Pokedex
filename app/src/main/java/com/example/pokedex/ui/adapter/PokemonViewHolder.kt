@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso
 class PokemonViewHolder(private val view: View): RecyclerView.ViewHolder(view){
 
     private val binding = ItemPokemonBinding.bind(view)
-    fun render(pokemon: Pokemon,onClick: (Pokemon)-> Unit){
+    fun render(pokemon: Pokemon, onClick: (Pokemon)-> Unit){
 
         with(binding){
             tvItemName.text = pokemon.name
