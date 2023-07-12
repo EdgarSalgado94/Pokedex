@@ -5,12 +5,12 @@
     android:layout_height="match_parent"
     android:background="@color/background_detail_pokemon"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.DetailPokemon">
+    tools:context=".ui.fragments.DetailPokemon">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/cardview_size"
-        android:layout_height="@dimen/cardview_size"
+        android:layout_width="@dimen/cardview_width_size"
+        android:layout_height="@dimen/cardview_width_size"
         android:layout_margin="@dimen/common_large_distance"
         app:cardCornerRadius="@dimen/common_large_distance"
         app:layout_constraintEnd_toEndOf="parent"

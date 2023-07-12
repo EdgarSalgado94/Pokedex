@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ListOfPokemon">
+    tools:context=".ui.fragments.ListOfPokemon">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -20,7 +20,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="@dimen/cardview_size"
+        android:layout_width="@dimen/cardview_width_size"
         android:layout_height="0dp"
         android:layout_margin="@dimen/common_large_distance"
         app:cardCornerRadius="@dimen/common_large_distance"

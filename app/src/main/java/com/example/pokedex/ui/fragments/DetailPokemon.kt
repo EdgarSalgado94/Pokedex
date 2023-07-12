@@ -1,4 +1,4 @@
-package com.example.pokedex.ui
+package com.example.pokedex.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentDetailPokemonBinding
 import com.squareup.picasso.Picasso
 
@@ -27,7 +26,7 @@ class DetailPokemon : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.tvPokemonName.text = args.detailPokemon.name
-        val img = args.detailPokemon.Img
+        val img:String = args.detailPokemon.Img
         Picasso.get().load(img).into(binding.ivPokemon)
 
         binding.btnOk.setOnClickListener {
