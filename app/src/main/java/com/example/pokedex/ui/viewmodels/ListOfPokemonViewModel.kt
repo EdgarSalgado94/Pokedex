@@ -6,12 +6,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pokedex.domain.GetCurrentPokemonListUseCase
 import com.example.pokedex.domain.GetNewPokemonUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListOfPokemonViewModel: ViewModel() {
-
-    private val getNewPokemonUseCase = GetNewPokemonUseCase()
-    private val getCurrentPokemonListUseCase = GetCurrentPokemonListUseCase()
+@HiltViewModel
+class ListOfPokemonViewModel @Inject constructor(
+    private val getNewPokemonUseCase:GetNewPokemonUseCase,
+    private val getCurrentPokemonListUseCase:GetCurrentPokemonListUseCase
+): ViewModel() {
 
     private val action = MutableLiveData<PokemonActions>()
     fun getActionsLiveData() = action as LiveData<PokemonActions>

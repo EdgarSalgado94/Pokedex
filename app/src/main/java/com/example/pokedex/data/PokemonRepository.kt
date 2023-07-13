@@ -2,17 +2,18 @@ package com.example.pokedex.data
 
 import com.example.pokedex.data.database.toPokemonEntity
 import com.example.pokedex.data.network.PokemonService
+import javax.inject.Inject
 
-class PokemonRepository {
-    private val api = PokemonService()
-
+class PokemonRepository @Inject constructor(
+    private val api:PokemonService,
+    private val pokemonProvider:PokemonProvider
+    ){
     suspend fun getNewPokemon(): Pokemon? {
         var numberRandom = (0..1000).random()
         val response = api.getPokemon(numberRandom)
-
         return (if (response != null) {
-            PokemonProvider.listOfPokemonSaved.add(response.toPokemonEntity(numberRandom))
-            PokemonProvider.listOfPokemonSaved.map{ it.toPokemon() }.last()
+            pokemonProvider.listOfPokemonSaved.add(response.toPokemonEntity(numberRandom))
+            pokemonProvider.listOfPokemonSaved.map{ it.toPokemon() }.last()
         } else {
             null
         }
@@ -20,7 +21,7 @@ class PokemonRepository {
     }
 
     suspend fun getCurrentPokemonList(): List<Pokemon> =
-        PokemonProvider.listOfPokemonSaved.map { it.toPokemon() }
+        pokemonProvider.listOfPokemonSaved.map { it.toPokemon() }
 }
 
 

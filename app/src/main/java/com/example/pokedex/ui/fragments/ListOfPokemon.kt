@@ -17,7 +17,9 @@ import com.example.pokedex.ui.adapter.PokemonAdapter
 import com.example.pokedex.ui.models.toDetailPokemonModel
 import com.example.pokedex.ui.viewmodels.ListOfPokemonViewModel
 import com.example.pokedex.ui.viewmodels.PokemonActions
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListOfPokemon : Fragment() {
 
     private val binding : FragmentListOfPokemonBinding by lazy {
