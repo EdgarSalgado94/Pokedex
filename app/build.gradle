@@ -74,8 +74,11 @@ dependencies {
     //Coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1'
 
-    // Dagger HILT
+    //Dagger HILT
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
+
+    //Localizacion
+    implementation 'com.google.android.gms:play-services-location:21.0.1'
 
 }
