@@ -54,12 +54,10 @@ class ListOfPokemon : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         bindActionLiveData()
         initRecyclerView()
-
         binding.btShowPokemon.setOnClickListener {
             viewModel.getNewPokemon()
         }
             requestPermission()
-
     }
 
     override fun onResume() {
@@ -127,15 +125,16 @@ class ListOfPokemon : Fragment() {
             if(count > 1) {
                 viewModel.getNewPokemon()
                 vibratePhone()
+                Toast.makeText(requireContext(), "Has caminado 10 metros, encontraste un nuevo pokemon", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
     private var mLocationRequest: LocationRequest =
         LocationRequest.Builder(Priority.PRIORITY_HIGH_ACCURACY, 1000)
-            .setWaitForAccurateLocation(false)
-            .setMinUpdateIntervalMillis(1500)
-            .setMaxUpdateDelayMillis(2500)
+            .setWaitForAccurateLocation(true)
+            .setMinUpdateIntervalMillis(500)
+            .setMaxUpdateDelayMillis(1500)
             .setMinUpdateDistanceMeters(10.0f)
             .build()
 

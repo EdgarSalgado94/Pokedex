@@ -81,4 +81,8 @@ dependencies {
     //Localizacion
     implementation 'com.google.android.gms:play-services-location:21.0.1'
 
+    //Room
+    implementation "androidx.room:room-ktx:2.5.0"
+    kapt("androidx.room:room-compiler:2.5.0")
+
 }

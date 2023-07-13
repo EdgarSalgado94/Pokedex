@@ -27,6 +27,6 @@ object NetworkModule {
     @Provides
     fun providesPokemonApiService(retrofit: Retrofit): PokemonApiService {
         return retrofit.create(PokemonApiService::class.java)
-
     }
+
 }

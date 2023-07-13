@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.pokedex.domain.GetCurrentPokemonListUseCase
 import com.example.pokedex.domain.GetNewPokemonUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class ListOfPokemonViewModel @Inject constructor(
 
     fun getNewPokemon(){
         action.postValue(PokemonActions.Loading(true))
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val newPokemon = getNewPokemonUseCase()
             if (newPokemon!= null){
                 action.postValue(PokemonActions.ShowNewPokemon(newPokemon))
@@ -33,7 +34,7 @@ class ListOfPokemonViewModel @Inject constructor(
 
     fun getListOfPokemon() {
         action.postValue(PokemonActions.Loading(true))
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             val pokemonCurrentList = getCurrentPokemonListUseCase()
             if (!pokemonCurrentList.isNullOrEmpty()) {
                 action.postValue(PokemonActions.SetCurrentList(pokemonCurrentList))
