@@ -1,6 +1,5 @@
 package com.example.pokedex.di
 
-import com.example.pokedex.core.RetrofitHelper
 import com.example.pokedex.data.network.PokemonApiService
 import dagger.Module
 import dagger.Provides
@@ -14,11 +13,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
+    private const val BASE_URL = "https://pokeapi.co/api/v2/"
+
     @Singleton
     @Provides
     fun provideRetrofit(): Retrofit{
         return Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
